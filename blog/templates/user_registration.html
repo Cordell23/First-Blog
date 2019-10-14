@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <form name="userRegistration" id="userRegistration" method= "POST" action= "{{ url_for('user_registration') }}" novalidate>
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card card-signin flex-row my-5">
+            <div class="card-img-left d-none d-md-flex">
+               <!-- Background image for card set in CSS! -->
+                <!-- Bootstrap core CSS -->
+                <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet">
+            </div>
+            <style>
+            body {
+              background-image: url('https://www.annieflee.info/wp-content/uploads/2019/04/pc-love-wallpaper-hd-full-size-new-2017-for-nature-smoke-download-wallpapers-free-kids-room-charming-f.jpg');
+            }
+            </style>
+            <div class="card-body">
+              <h1 class="card-title text-center">Create New User</h1>
+              
+                <div class="form-label-group">
+                  <input type="text" id="username" name="username" class="form-control" placeholder="username" required autofocus>
+                  <label for="username">Username</label>
+                </div>
+                
+                <hr>
+
+                <div class="form-label-group">
+                  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                  <label for="inputPassword">Password</label>
+                </div>
+                
+                <div class="form-label-group">
+                  <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                  <label for="inputConfirmPassword">Confirm password</label>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Sign In</a>
+                {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                {% if messages %}
+                  <ul class=flashes>
+                    <li style="color:#FF0000"> {{ message }}</li>
+                  </ul>
+                {% endif %}
+                {% endfor %}
+                {% endwith %}
+                </li>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src=" {{ url_for('static', filename = 'jquery.min.js') }} "></script>
+  <script src=" {{ url_for('static', filename = 'bootstrap.bundle.min.js') }} "></script>
+
+  <!-- Custom scripts for this template -->
+  <script src=" {{ url_for('static', filename = 'clean-blog.min.js') }} "></script>
+
+</html>
+
+
+
